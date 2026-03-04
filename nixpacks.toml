@@ -5,7 +5,7 @@ nixPkgs = ["nodejs_20"]
 cmds = ["npm ci --legacy-peer-deps --prefix frontend"]
 
 [phases.build]
-cmds = ["npm run build --prefix frontend"]
+cmds = ["CI=false npm run build --prefix frontend"]
 
 [start]
 cmd = "npx serve -s frontend/build -l $PORT"
