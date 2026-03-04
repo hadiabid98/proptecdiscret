@@ -1,13 +1,15 @@
 # Build Stage
-FROM node:18-alpine AS build
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
 # Copy package files
-COPY package.json ./
+COPY package.json package-lock.json ./
+# Also copy .npmrc if it exists for legacy-peer-deps
+COPY .npmrc* ./
 
-# Install dependencies - skip package-lock for compatibility
-RUN npm install --legacy-peer-deps --prefer-offline || npm install --legacy-peer-deps
+# Install dependencies using npm ci for production consistency
+RUN npm ci --legacy-peer-deps --prefer-offline || npm install --legacy-peer-deps
 
 # Copy the rest of the application
 COPY . .
