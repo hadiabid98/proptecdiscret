@@ -1,15 +1,15 @@
 # Build Stage
-FROM node:22-alpine AS build
+FROM node:20-slim AS build
 
 WORKDIR /app
 
-# Copy package files from frontend directory
+# Copy package files (legacy-peer-deps handled in .npmrc)
 COPY package.json package-lock.json* .npmrc* ./
 
-# Install dependencies (using legacy-peer-deps)
+# Install dependencies
 RUN npm ci --legacy-peer-deps || npm install --legacy-peer-deps
 
-# Copy the rest of the frontend source code (contents only)
+# Copy the rest of the source code
 COPY . .
 
 # Production optimizations
@@ -26,7 +26,7 @@ FROM nginx:stable-alpine
 # Copy built files from build stage to nginx html folder
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Add custom nginx config (already in the current directory /app)
+# Add custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
