@@ -104,7 +104,7 @@ const Process = () => (
                                     background: '#fff',
                                     border: '1px solid #e2e8f0',
                                     borderRadius: 24,
-                                    padding: '36px 28px',
+                                    padding: '24px 18px',
                                     position: 'relative',
                                     overflow: 'hidden',
                                     cursor: 'default',

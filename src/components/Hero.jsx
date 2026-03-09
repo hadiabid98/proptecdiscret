@@ -27,7 +27,7 @@ const Hero = () => {
                 transition={{ duration: 1.2 }}
                 className="hero-wrapper-full"
                 style={{
-                    backgroundImage: `linear-gradient(135deg, rgba(16,15,15,0.7) 0%, rgba(16,15,15,0.4) 100%), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2000&auto=format&fit=crop')`,
+                    backgroundImage: `radial-gradient(circle at 80% 20%, rgba(182, 17, 19, 0.15) 0%, transparent 40%), linear-gradient(135deg, rgba(16,15,15,0.7) 0%, rgba(16,15,15,0.4) 100%), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2000&auto=format&fit=crop')`,
                 }}
             >
                 <div className="container hero-inner">

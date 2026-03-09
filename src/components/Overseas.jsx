@@ -78,7 +78,7 @@ const Overseas = () => {
                                         display: 'inline-flex', alignItems: 'center', gap: 12,
                                         padding: '20px 48px', borderRadius: 100,
                                         background: '#F9F9F9', color: '#100F0F',
-                                        fontWeight: 800, fontSize: '1.05rem', textDecoration: 'none',
+                                        fontWeight: 700, fontSize: '1rem', textDecoration: 'none',
                                         boxShadow: '0 10px 40px rgba(255,255,255,0.1)',
                                         transition: 'all 0.3s ease',
                                         width: 'fit-content'

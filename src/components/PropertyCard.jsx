@@ -23,7 +23,11 @@ const PropertyCard = ({ item, isShowcase, darkTheme }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            whileHover={{ y: darkTheme ? -10 : -8, scale: darkTheme ? 1.02 : 1.01 }}
+            whileHover={{ 
+                y: darkTheme ? -10 : -8, 
+                scale: darkTheme ? 1.02 : 1.01,
+                boxShadow: darkTheme ? '0 20px 40px rgba(255, 255, 255, 0.08)' : '0 20px 40px rgba(0, 0, 0, 0.1)' 
+            }}
             className={`property-card ${darkTheme ? 'dark-theme' : ''}`}
             style={{
                 position: 'relative',
@@ -40,9 +44,13 @@ const PropertyCard = ({ item, isShowcase, darkTheme }) => {
                 className={`wishlist-btn-circle ${active ? 'active' : ''}`}
                 style={{
                     position: 'absolute',
-                    top: '15px',
-                    right: '15px',
-                    zIndex: 10,
+                    top: '16px',
+                    right: '16px',
+                    zIndex: '10',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '50%',
                     width: '36px',
                     height: '36px',
                     backgroundColor: darkTheme ? 'rgba(0,0,0,0.5)' : '#fff',
@@ -53,8 +61,8 @@ const PropertyCard = ({ item, isShowcase, darkTheme }) => {
             >
                 <Heart
                     size={18}
-                    fill={active ? "#b61113" : "none"}
-                    color={active ? "#b61113" : darkTheme ? "#fff" : "#100F0F"}
+                    fill={active ? (darkTheme ? "#fff" : "#100F0F") : "none"}
+                    color={active ? (darkTheme ? "#fff" : "#100F0F") : (darkTheme ? "#fff" : "#100F0F")}
                 />
             </button>
 
@@ -137,7 +145,7 @@ const PropertyCard = ({ item, isShowcase, darkTheme }) => {
                     {/* Price */}
                     <div
                         className="property-price"
-                        style={{ color: '#b61113', marginTop: 'auto', fontWeight: 800, fontSize: '1.2rem' }}
+                        style={{ color: darkTheme ? '#fff' : 'var(--text-primary)', marginTop: 'auto', fontWeight: 800, fontSize: '1.25rem' }}
                     >
                         {item.price}
                     </div>
@@ -146,7 +154,12 @@ const PropertyCard = ({ item, isShowcase, darkTheme }) => {
                     {isShowcase && (
                         <div style={{ marginTop: '20px' }}>
                             <motion.span
-                                whileHover={{ scale: 1.05, background: '#b61113', color: '#fff' }}
+                                whileHover={{
+                                    scale: 1.05,
+                                    background: darkTheme ? '#fff' : 'var(--primary-color)',
+                                    color: darkTheme ? 'var(--primary-color)' : '#fff',
+                                    boxShadow: '0 8px 15px rgba(182, 17, 19, 0.15)'
+                                }}
                                 whileTap={{ scale: 0.95 }}
                                 style={{
                                     display: 'block',
@@ -154,9 +167,9 @@ const PropertyCard = ({ item, isShowcase, darkTheme }) => {
                                     width: '100%',
                                     padding: '12px 0',
                                     borderRadius: '100px',
-                                    border: `1.5px solid #b61113`,
+                                    border: `1.5px solid ${darkTheme ? '#fff' : 'var(--primary-color)'}`,
                                     background: 'transparent',
-                                    color: '#b61113',
+                                    color: darkTheme ? '#fff' : 'var(--primary-color)',
                                     fontWeight: 700,
                                     fontSize: '0.95rem',
                                     transition: 'all 0.3s ease',

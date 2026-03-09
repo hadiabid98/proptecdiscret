@@ -89,8 +89,9 @@ const FeaturedListings = () => {
     ];
 
     return (
-        <section id="listings" style={{ backgroundColor: '#100F0F', padding: '100px 0' }}>
-            <div className="container">
+        <section id="listings" style={{ backgroundColor: '#100F0F', padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
+            <div className="red-touch-bg" style={{ opacity: 0.1, background: 'radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)' }}></div>
+            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 {/* Section Header */}
                 <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                     <motion.span

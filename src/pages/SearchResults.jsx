@@ -173,12 +173,13 @@ const SearchResults = () => {
         padding: '10px 22px',
         borderRadius: '50px',
         border: sortBy === val ? '2px solid #100F0F' : '1.5px solid #e2e8f0',
-        background: sortBy === val ? '#F0F0F0' : '#fff',
-        color: sortBy === val ? '#100F0F' : '#374151',
+        background: sortBy === val ? '#100F0F' : '#fff',
+        color: sortBy === val ? '#fff' : '#374151',
         fontWeight: 600,
         fontSize: '0.9rem',
         cursor: 'pointer',
-        transition: 'all 0.2s ease'
+        transition: 'all 0.2s ease',
+        boxShadow: sortBy === val ? '0 4px 12px rgba(0, 0, 0, 0.1)' : 'none'
     });
 
     return (

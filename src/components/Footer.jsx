@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Footer = () => (
-    <footer>
-        <div className="container">
+    <footer style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="red-touch-bg" style={{ opacity: 0.08 }}></div>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div className="footer-grid">
                 <div>
                     <div className="footer-logo">Discret Proptech</div>
@@ -22,16 +23,22 @@ const Footer = () => (
                 <div className="footer-links">
                     <h5>Ready to start?</h5>
                     <motion.button
-                        whileHover={{ scale: 1.05, y: -5 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ 
+                            scale: 1.02, 
+                            y: -2,
+                            boxShadow: '0 15px 35px rgba(255,255,255,0.15)'
+                        }}
+                        whileTap={{ scale: 0.98 }}
                         className="btn footer-cta-btn"
                         style={{
                             marginTop: '16px',
-                            backgroundColor: '#b61113',
-                            color: '#fff',
-                            boxShadow: '0 10px 30px rgba(182,17,19,0.2)',
+                            backgroundColor: '#fff',
+                            color: '#000',
                             width: 'fit-content',
-                            border: 'none'
+                            border: 'none',
+                            padding: '14px 28px',
+                            fontWeight: 700,
+                            fontSize: '1rem'
                         }}
                     >
                         Explore Better Real Estate Opportunities Today
